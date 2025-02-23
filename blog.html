@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Yazılım ve Teknoloji Makaleleri | Rehber Yazılım</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/blog.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 404 sayfası tasarıma uygun şekilde görüntülenecek -->
+    <link rel="stylesheet" href="css/skeleton.css">
+    <script src="js/form-validation.js" defer></script>
+
+
+
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/logo.png" alt="Tasarımcı Akademisi Logo">
+                </a>
+                <a href="index.html" class="back-to-blog">
+                    <i class="fas fa-arrow-left"></i>
+                    <span>Ana Sayfa</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="container">
+            <!-- <h1>Yazılım ve Teknoloji Blogu</h1> -->
+            <p>En güncel teknoloji haberleri, yazılım ipuçları ve yapay zeka gelişmeleri burada</p>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="all">Tümü</button>
+                <button class="category-tab" data-category="yapay-zeka">Yapay Zeka</button>
+                <button class="category-tab" data-category="yazilim">Yazılım</button>
+                <button class="category-tab" data-category="tasarim">Tasarım</button>
+                <button class="category-tab" data-category="teknoloji">Teknoloji</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post">
+        <div class="container">
+            <div class="featured-card">
+                <div class="featured-image">
+                    <img src="images/blog/blog.jpg" alt="Yapay Zeka ve Geleceğimiz">
+                    <div class="featured-badge">Öne Çıkan</div>
+                </div>
+                <div class="featured-content">
+                    <div class="post-meta">
+                        <span class="category">Yapay Zeka</span>
+                        <span class="date">23 Şubat 2024</span>
+                    </div>
+                    <h2>ChatGPT İle Programalama Öğrenin</h2>
+                    <p>Yapay zeka teknolojilerinin tasarım dünyasına etkileri ve gelecekte tasarımcıları bekleyen değişimler hakkında detaylı bir analiz.</p>
+                    <a href="blog-post.html" class="btn btn-primary">Devamını Oku</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid">
+        <div class="container">
+            <div class="posts-grid">
+                <!-- Post 1 -->
+                <article class="post-card" data-category="yapay-zeka">
+                    <div class="post-image">
+                        <img src="images/blog/blog2.jpg" alt="ChatGPT İpuçları">
+                        <div class="post-category">Yapay Zeka</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="date">22 Şubat 2024</span>
+                            <span class="read-time">5 dk okuma</span>
+                        </div>
+                        <h3>ChatGPT ile Verimli Çalışma İpuçları</h3>
+                        <p>Yapay zeka asistanını daha etkili kullanmanın yolları ve profesyonel iş akışınıza entegre etme teknikleri.</p>
+                        <a href="blog-post.html" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Post 2 -->
+                <article class="post-card" data-category="tasarim">
+                    <div class="post-image">
+                        <img src="images/blog/blog3.jpg" alt="Web Tasarım Trendleri">
+                        <div class="post-category">Tasarım</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="date">21 Şubat 2024</span>
+                            <span class="read-time">7 dk okuma</span>
+                        </div>
+                        <h3>2024'ün Öne Çıkan Web Tasarım Trendleri</h3>
+                        <p>Modern web tasarımında öne çıkan trendler, yeni teknolojiler ve kullanıcı deneyimi yaklaşımları.</p>
+                        <a href="#" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="post-card" data-category="yazilim">
+                    <div class="post-image">
+                        <img src="images/blog/blog4.webp" alt="Yazılım Geliştirme">
+                        <div class="post-category">Yazılım</div>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-meta">
+                            <span class="date">20 Şubat 2024</span>
+                            <span class="read-time">6 dk okuma</span>
+                        </div>
+                        <h3>Modern Yazılım Geliştirme Süreçleri</h3>
+                        <p>Günümüzde yazılım geliştirme süreçlerini daha verimli hale getirmenin yolları ve best practice'ler.</p>
+                        <a href="#" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Güncel Kalmak İster Misiniz?</h2>
+                <p>Haftalık blog yazıları ve teknoloji güncellemelerinden haberdar olun.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="E-posta adresiniz" required>
+                    <button type="submit" class="btn">Abone Ol</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Rehber Yazılım. Tüm hakları saklıdır.</p>
+
+        </div>
+    </footer>
+
+    <!-- Blog Grid içine eklenecek skeleton template -->
+    <template id="skeleton-template">
+        <article class="post-card skeleton">
+            <div class="post-image"></div>
+            <div class="post-content">
+                <div class="title-skeleton skeleton"></div>
+                <div class="text-skeleton skeleton"></div>
+                <div class="text-skeleton skeleton"></div>
+            </div>
+        </article>
+    </template>
+
+    <script src="js/main.js"></script>
+    <script src="js/blog.js"></script>
+</body>
+</html> 
