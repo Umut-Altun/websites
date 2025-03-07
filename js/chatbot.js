@@ -5,12 +5,14 @@ const promptInput = promptForm.querySelector(".prompt-input");
 const fileInput = promptForm.querySelector("#file-input");
 const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const themeToggleBtn = document.querySelector("#theme-toggle-btn");
+
 // API Setup
-const API_KEY = "sk-f5b722bc64eb4ccbabd571d33e113b5b";
+const API_KEY = "your-deepspek-api-key";
 const API_URL = `https://api.deepspek.com/v1/generate`;
 let controller, typingInterval;
 const chatHistory = [];
 const userData = { message: "", file: {} };
+
 // Set initial theme from local storage
 const isLightTheme = localStorage.getItem("themeColor") === "light_mode";
 document.body.classList.toggle("light-theme", isLightTheme);
@@ -41,51 +43,48 @@ const typingEffect = (text, textElement, botMsgDiv) => {
     }
   }, 40); // 40 ms delay
 };
-// Make the API call and generate the bot's response
+
 const generateResponse = async (botMsgDiv) => {
-  const textElement = botMsgDiv.querySelector(".message-text");
-  controller = new AbortController();
+    const textElement = botMsgDiv.querySelector(".message-text");
+    controller = new AbortController();
 
-  chatHistory.push({
-    role: "user",
-    parts: [{ text: userData.message }, ...(userData.file.data ? [{ inline_data: (({ fileName, isImage, ...rest }) => rest)(userData.file) }] : [])],
-  });
+    try {
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json", 
+                "Authorization": `Bearer ${API_KEY}` 
+            },
+            body: JSON.stringify({
+                prompt: userData.message,
+                history: chatHistory
+            }),
+            signal: controller.signal,
+        });
 
-  try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: chatHistory }),
-      signal: controller.signal,
-    });
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || "API Error");
 
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.error.message);
+        const responseText = data.response.trim();
+        botMsgDiv.innerHTML = `
+            <img class="avatar" src="img/logo.png" />
+            <div class="message-content">${formatBotResponse(responseText)}</div>
+        `;
 
-    const responseText = data.candidates[0].content.parts[0].text.trim();
-    
-    // Formatlı içeriği direkt göster
-    botMsgDiv.innerHTML = `
-      <img class="avatar" src="img/logo.png" />
-      <div class="message-content">
-        ${formatBotResponse(responseText)}
-      </div>
-    `;
+        botMsgDiv.classList.remove("loading");
+        document.body.classList.remove("bot-responding");
+        scrollToBottom();
 
-    botMsgDiv.classList.remove("loading");
-    document.body.classList.remove("bot-responding");
-    scrollToBottom();
-    
-    chatHistory.push({ role: "model", parts: [{ text: responseText }] });
-   } catch (error) {
-    textElement.textContent = error.name === "AbortError" ? "Response generation stopped." : error.message;
-    textElement.style.color = "#d62939";
-    botMsgDiv.classList.remove("loading");
-    document.body.classList.remove("bot-responding");
-    scrollToBottom();
-  } finally {
-    userData.file = {};
-  }
+        chatHistory.push({ role: "model", content: responseText });
+    } catch (error) {
+        textElement.textContent = error.name === "AbortError" ? "Yanıt durduruldu." : error.message;
+        textElement.style.color = "#d62939";
+        botMsgDiv.classList.remove("loading");
+        document.body.classList.remove("bot-responding");
+        scrollToBottom();
+    } finally {
+        userData.file = {};
+    }
 };
 
 
