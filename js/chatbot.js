@@ -6,8 +6,8 @@ const fileInput = promptForm.querySelector("#file-input");
 const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const themeToggleBtn = document.querySelector("#theme-toggle-btn");
 // API Setup
-const API_KEY = "AIzaSyD_7PqHE3AbU9WQpCQqeyf8xgosEwVYTN0";
-const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${API_KEY}`;
+const API_KEY = "sk-f5b722bc64eb4ccbabd571d33e113b5b";
+const API_URL = `https://api.deepspek.com/v1/generate`;
 let controller, typingInterval;
 const chatHistory = [];
 const userData = { message: "", file: {} };
