@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rehber Sohbet Botu | Rehber Yazılım</title>
+  <!-- Google Fonts İkonları için Bağlantı -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@32,400,0,0" />
+  <link rel="stylesheet" href="css/chatbot.css" />
+</head>
+
+<body>
+  <div class="container">
+    <!-- Uygulama Başlığı -->
+    <header class="app-header">
+      <h1 class="heading">Merhaba Dostum</h1>
+      <h4 class="sub-heading">Sana nasıl yardımcı olabilirim?</h4>
+    </header>
+    <!-- Öneriler Listesi -->
+    <ul class="suggestions">
+      <li class="suggestions-item">
+        <p class="text"> Python ile web geliştirme ne kadar zor?</p>
+        <span class="icon material-symbols-rounded">draw</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">2025'te web geliştirme uzmanlığımı nasıl geliştirebilirim?</p>
+        <span class="icon material-symbols-rounded">lightbulb</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">HTML, CSS ve JavaScript nasıl kullanılır?</p>
+        <span class="icon material-symbols-rounded">explore</span>
+      </li>
+      <li class="suggestions-item">
+        <p class="text">Python'da döngüler nasıl kullanılır?</p>
+        <span class="icon material-symbols-rounded">code_blocks</span>
+      </li>
+    </ul>
+    <!-- Sohbetler -->
+    <div class="chats-container"></div>
+    <!-- Prompt Girişi -->
+    <div class="prompt-container">
+      <div class="prompt-wrapper">
+        <form action="#" class="prompt-form">
+          <input type="text" placeholder="Gemini'ye sor" class="prompt-input" required />
+          <div class="prompt-actions">
+            <!-- Dosya Yükleme Alanı -->
+            <div class="file-upload-wrapper">
+              <img src="#" class="file-preview" />
+              <input id="file-input" type="file" accept="image/*, .pdf, .txt, .csv" hidden />
+              <button type="button" class="file-icon material-symbols-rounded">description</button>
+              <button id="cancel-file-btn" type="button" class="material-symbols-rounded">close</button>
+              <button id="add-file-btn" type="button" class="material-symbols-rounded">attach_file</button>
+            </div>
+            <!-- Gönder ve Yanıtı Durdur Düğmeleri -->
+            <button id="stop-response-btn" type="button" class="material-symbols-rounded">stop_circle</button>
+            <button id="send-prompt-btn" class="material-symbols-rounded">arrow_upward</button>
+          </div>
+        </form>
+        <!-- Tema ve Sohbetleri Silme Düğmeleri -->
+        <button id="theme-toggle-btn" class="material-symbols-rounded">light_mode</button>
+        <button id="delete-chats-btn" class="material-symbols-rounded">delete</button>
+      </div>
+      <p class="disclaimer-text">Rehber Bot hata yapabilir.</p>
+    </div>
+  </div>
+  <script src="js/chatbot.js"></script>
+</body>
+
+</html>
