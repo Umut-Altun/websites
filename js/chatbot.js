@@ -7,7 +7,7 @@ const fileUploadWrapper = promptForm.querySelector(".file-upload-wrapper");
 const themeToggleBtn = document.querySelector("#theme-toggle-btn");
 
 // API Setup
-const API_KEY = "your-deepspek-api-key";
+const API_KEY = "sk-f5b722bc64eb4ccbabd571d33e113b5b";
 const API_URL = `https://api.deepspek.com/v1/generate`;
 let controller, typingInterval;
 const chatHistory = [];
